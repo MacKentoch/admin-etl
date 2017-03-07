@@ -1,29 +1,34 @@
-import React, { PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import cx from 'classnames';
 
+class AsideRight extends PureComponent {
+  render() {
+    const { isAnimated, isExpanded, children } = this.props;
 
-const AsideRight = ({children, isAnimated, isExpanded}) => {
-  return (
-    <aside className={
-      cx({
-        'right-side': true,
-        'right-side--top-margin': true,
-        'aside-right-animated': isAnimated,
-        'strech': isExpanded
-      })}>
-      { children }
-    </aside>
-  );
-};
+    return (
+      <aside
+        className={
+          cx({
+            'right-side': true,
+            'right-side--top-margin': true,
+            'aside-right-animated': isAnimated,
+            'strech': isExpanded
+          })
+        }>
+        { children }
+      </aside>
+    );
+  }
+}
 
 AsideRight.propTypes = {
   children: PropTypes.node.isRequired,
-  isAnimated: PropTypes.bool.isRequired,
-  isExpanded: PropTypes.bool.isRequired
+  isAnimated: PropTypes.bool,
+  isExpanded: PropTypes.bool
 };
 
 AsideRight.defaultProps = {
-  isAnimated: true,
+  isAnimated: false,
   isExpanded: false
 };
 

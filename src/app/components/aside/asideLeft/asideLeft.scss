@@ -27,10 +27,14 @@
 .left-side {
   z-index: 10;
   transform: translateX(0) !important; // translate to MINUS sideMenu width
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.16), 0px 3px 10px rgba(0,0,0,0.23);
 }
 .left-side.collapse-left {
     transform: translateX(-220px) !important; // translate to MINUS sideMenu width
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.16), 0px 3px 10px rgba(0,0,0,0.23);
 }
+
+
 
 @media screen and (max-width: 990px) {
   .aside-left {
@@ -39,11 +43,11 @@
 
   .left-side {
     z-index: 100;
+    overflow-y: scroll;
     margin-top: 50px;
-    transform: translateX(220px) !important;
+    transform: translateX(220px) !important; // translate to MINUS sideMenu width
   }
-
   .left-side.collapse-left {
-      transform: translateX(0px) !important;
+      transform: translateX(0px) !important; // translate to MINUS sideMenu width
   }
 }

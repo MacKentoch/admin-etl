@@ -1,95 +1,91 @@
 import moment         from 'moment';
+import {
+  getSideMenuState,
+  setSideMenuState
+}                     from '../../services';
+import {fromJS}       from 'immutable';
 
-const SIDEMU_IS_COLLAPSED_KEY = 'SIDEMENU_IS_OPENED_KEY';
-const SIDEMU_IS_COLLAPSED_VALUE = true;
-const SIDEMU_IS_NOT_COLLAPSED_VALUE = false;
-const READ_LOCALSTORAGE = false;
-const WRITE_LOCALSTORAGE = true;
+// --------------------------------
+// CONSTANTS
+// --------------------------------
+export const OPEN_SIDE_MENU   = 'OPEN_SIDE_MENU';
+export const CLOSE_SIDE_MENU  = 'CLOSE_SIDE_MENU';
 
-
-const OPEN_SIDE_MENU   = 'OPEN_SIDE_MENU';
-const CLOSE_SIDE_MENU  = 'CLOSE_SIDE_MENU';
-const GET_SIDE_MENU_TOGGLE_STATE_FROM_LOCALSTORAGE = 'GET_SIDE_MENU_TOGGLE_STATE_FROM_LOCALSTORAGE';
-
-const initialState = {
+// --------------------------------
+// REDUCER
+// --------------------------------
+const initialState = fromJS({
   isCollapsed: false,
   time: null
-};
+});
 
 export default function sideMenu(state = initialState, action) {
+  const currentTime = moment().format();
+
   switch (action.type) {
 
-  case GET_SIDE_MENU_TOGGLE_STATE_FROM_LOCALSTORAGE:
-    return {
-      isCollapsed:  Boolean(action.permanentStore.storeValue),
-      time:         action.time
-    };
   case OPEN_SIDE_MENU:
-    return {
-      ...state,
+    return state.merge({
       isCollapsed:  action.isCollapsed,
-      time:         action.time
-    };
+      time:         currentTime
+    });
+
   case CLOSE_SIDE_MENU:
-    return {
-      ...state,
+    return state.merge({
       isCollapsed:  action.isCollapsed,
-      time:         action.time
-    };
+      time:         currentTime
+    });
+
   default:
     return state;
   }
 }
 
-export function getSideMenuCollpasedStateFromLocalStorage(time = moment().format()) {
-  return {
-    type: GET_SIDE_MENU_TOGGLE_STATE_FROM_LOCALSTORAGE,
-    time,
-    // for localStorageManager middleware
-    permanentStore: {
-      required: true,
-      storeKey: SIDEMU_IS_COLLAPSED_KEY,
-      storeValue: '',
-      ReadOrWrite: READ_LOCALSTORAGE // write key / value to localStorage
-    }
-  };
-}
-export function openSideMenu(time = moment().format()) {
+// --------------------------------
+// ACTIONS CREATORS
+// --------------------------------
+
+export function openSideMenu() {
+  setSideMenuStateToLocalStorage(true);
   return {
     type:         OPEN_SIDE_MENU,
-    isCollapsed:  false,
-    time,
-    // for localStorageManager middleware
-    permanentStore: {
-      required: true,
-      storeKey: SIDEMU_IS_COLLAPSED_KEY,
-      storeValue: SIDEMU_IS_NOT_COLLAPSED_VALUE,
-      ReadOrWrite: WRITE_LOCALSTORAGE // write key / value to localStorage
-    }
+    isCollapsed:  false
   };
 }
-export function closeSideMenu(time = moment().format()) {
+
+export function closeSideMenu()  {
+  setSideMenuStateToLocalStorage(false);
   return {
     type:         CLOSE_SIDE_MENU,
-    isCollapsed:  true,
-    time,
-    // for localStorageManager middleware
-    permanentStore: {
-      required: true,
-      storeKey: SIDEMU_IS_COLLAPSED_KEY,
-      storeValue: SIDEMU_IS_COLLAPSED_VALUE,
-      ReadOrWrite: WRITE_LOCALSTORAGE // write key / value to localStorage
-    }
+    isCollapsed:  true
   };
 }
+
 export function toggleSideMenu() {
   return (dispatch, getState) => {
-    const state = getState();
-    const sideMenuStore = state.sideMenu;
-    if (sideMenuStore.isCollapsed) {
-      dispatch(openSideMenu());
-    } else {
-      dispatch(closeSideMenu());
+    const sideMenuStore  = getState().get('sidemenu');
+    const isCollapsed = sideMenuStore.get('isCollapsed');
+
+    setSideMenuStateToLocalStorage(!isCollapsed);
+
+    if (isCollapsed) {
+      return dispatch(openSideMenu());
     }
+    return dispatch(closeSideMenu());
   };
+}
+
+// initilize sideMenu form localStorage (should be called only once on init)
+export function initSideMenu() {
+  return dispatch => {
+    // sideMenu state from localStorage: set opened or closed menu
+    if (getSideMenuState()) {
+      return dispatch(openSideMenu());
+    }
+    return dispatch(closeSideMenu());
+  };
+}
+
+function setSideMenuStateToLocalStorage(state) {
+  setSideMenuState(state);
 }

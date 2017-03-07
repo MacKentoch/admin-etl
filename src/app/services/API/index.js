@@ -1,9 +1,5 @@
-import { getEarningGraphData } from './earningGraph';
-import { getTeamMatesData } from './teamMates';
-import { getUserInfoData } from './userInfos';
+import { getUserInfo } from './user/userInfo';
 
 export {
-  getEarningGraphData,
-  getTeamMatesData,
-  getUserInfoData
+  getUserInfo
 };

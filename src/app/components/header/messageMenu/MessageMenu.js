@@ -24,7 +24,7 @@ const MessageMenu = () => {
                 <a href="#">
                   <div className="pull-left">
                     <img
-                      src={require('../../../vendors/img/26115.jpg')}
+                      src={require('../../../../vendors/img/26115.jpg')}
                       className="img-circle"
                       alt="User Image"/>
                   </div>
@@ -45,7 +45,7 @@ const MessageMenu = () => {
                 <a href="#">
                   <div className="pull-left">
                     <img
-                      src={require('../../../vendors/img/26115.jpg')}
+                      src={require('../../../../vendors/img/26115.jpg')}
                       className="img-circle"
                       alt="user image"
                     />
@@ -66,7 +66,7 @@ const MessageMenu = () => {
                 <a href="#">
                   <div className="pull-left">
                     <img
-                      src={require('../../../vendors/img/avatar.png')}
+                      src={require('../../../../vendors/img/avatar.png')}
                       className="img-circle"
                       alt="user image"
                     />
@@ -85,7 +85,7 @@ const MessageMenu = () => {
                 <a href="#">
                   <div className="pull-left">
                     <img
-                      src={require('../../../vendors/img/26115.jpg')}
+                      src={require('../../../../vendors/img/26115.jpg')}
                       className="img-circle"
                       alt="user image"
                     />
@@ -106,7 +106,7 @@ const MessageMenu = () => {
                 <a href="#">
                   <div className="pull-left">
                     <img
-                      src={require('../../../vendors/img/avatar.png')}
+                      src={require('../../../../vendors/img/avatar.png')}
                       className="img-circle"
                       alt="user image"
                     />

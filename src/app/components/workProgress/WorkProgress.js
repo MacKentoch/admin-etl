@@ -1,66 +1,86 @@
-import React from 'react';
-import WorkProgressPanel from './workProgressPanel/WorkProgressPanel';
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableCol
-} from '../../components';
+'use strict';
 
-const headers = ['#', 'Project', 'Manager', 'Deadline', 'Status', 'Progress'];
-const content = [
-  ['1', 'Facebook', 'Mark', '10/10/2014', <span className="label label-danger">in progress</span>, <span className="badge badge-info">50%</span>],
-  ['2', 'Twitter', 'Evan', '10/8/2014', <span className="label label-success">completed</span>, <span className="badge badge-success">100%</span>],
-  ['3', 'Google', 'Larry', '10/12/2014', <span className="label label-warning">in progress</span>, <span className="badge badge-warning">75%</span>],
-  ['4', 'LinkedIn', 'Allen', '10/01/2015', <span className="label label-info">in progress</span>, <span className="badge badge-info">65%</span>],
-  ['5', 'Tumblr', 'David', '01/11/2014', <span className="label label-warning">in progress</span>, <span className="badge badge-danger">95%</span>],
-  ['6', 'Tesla', 'Musk', '01/11/2014', <span className="label label-info">in progress</span>, <span className="badge badge-success">95%</span>],
-  ['7', 'Ghost', 'XXX', '01/11/2014', <span className="label label-info">in progress</span>, <span className="badge badge-success">95%</span>]
-];
+import React from 'react';
 
 const WorkProgress = () => {
   return (
-    <WorkProgressPanel>
-      <Table>
-        <TableHeader>
-          {
-            headers.map(
-              (header, headerIdx) => {
-                return (
-                  <TableCol key={headerIdx}>
-                    {header}
-                  </TableCol>
-                );
-              }
-            )
-          }
-        </TableHeader>
-        <TableBody>
-          {
-            content.map(
-              (contentRow, contentRowIdx) => {
-                return (
-                  <TableRow key={contentRowIdx}>
-                    {
-                      contentRow.map(
-                        (contentColumn, contentColumnIdx) => {
-                          return (
-                            <TableCol key={contentColumnIdx}>
-                              {contentColumn}
-                            </TableCol>
-                          );
-                        }
-                      )
-                    }
-                  </TableRow>
-                );
-              }
-            )
-          }
-        </TableBody>
-      </Table>
-    </WorkProgressPanel>
+    <section className="panel">
+      <header className="panel-heading">
+        Work Progress
+      </header>
+      <div className="panel-body table-responsive">
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Project</th>
+              <th>Manager</th>
+              <th>Deadline</th>
+              <th>Status</th>
+              <th>Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Facebook</td>
+              <td>Mark</td>
+              <td>10/10/2014</td>
+              <td><span className="label label-danger">in progress</span></td>
+              <td><span className="badge badge-info">50%</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Twitter</td>
+              <td>Evan</td>
+              <td>10/8/2014</td>
+              <td><span className="label label-success">completed</span></td>
+              <td><span className="badge badge-success">100%</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Google</td>
+              <td>Larry</td>
+              <td>10/12/2014</td>
+              <td><span className="label label-warning">in progress</span></td>
+              <td><span className="badge badge-warning">75%</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>LinkedIn</td>
+              <td>Allen</td>
+              <td>10/01/2015</td>
+              <td><span className="label label-info">in progress</span></td>
+              <td><span className="badge badge-info">65%</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Tumblr</td>
+              <td>David</td>
+              <td>01/11/2014</td>
+              <td><span className="label label-warning">in progress</span></td>
+              <td><span className="badge badge-danger">95%</span></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Tesla</td>
+              <td>Musk</td>
+              <td>01/11/2014</td>
+              <td><span className="label label-info">in progress</span></td>
+              <td><span className="badge badge-success">95%</span></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Ghost</td>
+              <td>XXX</td>
+              <td>01/11/2014</td>
+              <td><span className="label label-info">in progress</span></td>
+              <td><span className="badge badge-success">95%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 };
 

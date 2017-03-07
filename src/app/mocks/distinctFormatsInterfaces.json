@@ -1,0 +1,8 @@
+{
+  "formats": [
+  "FIXED_POSITION",
+  "CSV_CUSTOM",
+  "TABLE",
+  "CSV"
+]
+}

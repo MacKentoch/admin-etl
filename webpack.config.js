@@ -3,7 +3,7 @@ const path         = require('path');
 const autoprefixer = require('autoprefixer');
 const precss       = require('precss');
 
-const assetsDir       = path.resolve(__dirname, 'public/assets');
+const assetsDir       = path.resolve(__dirname, 'dist/public/assets');
 const nodeModulesDir  = path.resolve(__dirname, 'node_modules');
 const vendorsDir      = path.resolve(__dirname, 'src/app/vendors');
 
@@ -34,12 +34,13 @@ const config = {
       loader: 'url?limit=100000@name=[name][ext]'
     }]
   },
-  postcss() {
+  postcss: function () {
     return [precss, autoprefixer];
   },
   plugins: [
     getImplicitGlobals(),
     setNodeEnv()
+    // uglifyJS()
   ]
 };
 

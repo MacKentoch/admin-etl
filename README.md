@@ -1,31 +1,34 @@
-ReactJS version of Director Responsive Admin Template Free
+Admin ETL
 ==========
 
-Credits to [web-apps.ninja](http://web-apps.ninja/director-free-responsive-admin-template/) for giving us the original template for free :clap:.
+**Still at early stage.**
 
-## Preview
-![preview](https://raw.githubusercontent.com/MacKentoch/react-director-admin-template/master/preview/preview.png)
-
-[Launch preview here](https://mackentoch.github.io/react-director-admin-template)
+This application is based on starter/theme [react-director-admin-template](https://github.com/MacKentoch/react-director-admin-template) but adds `ImmutableJS` + `redux-form` + `react-bootstrap-table`.
 
 ## Content
 
-- Director template (see [original one here]((http://web-apps.ninja/director-free-responsive-admin-template/)))
-- ReactJS
-- Redux (*+ hot reload + redux devtools extension*)
-  - since v0.2.0: adopted redux ducks (*for clarity*)
-- *...more content coming soon*
+- ReactJS (>15.x)
+- Redux
+- ImmutableJS
+- redux-form
+- react-bootstrap
+- react-bootstrap-table
+- *and more...*
+
+> NOTE: this project uses [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension#redux-devtools-extension) to make developments a pure pleasure.
 
 ## Usage
-
-### Prerequisite
-
-> Ensure to have NodeJS v6.x MINIMUM.
 
 ### Install
 ```bash
 npm install
 ```
+or
+
+```bash
+yarn install
+```
+
 
 ### bundle dev mode
 
@@ -41,8 +44,6 @@ npm run dev-win
 
 ### dev : hot reload mode
 
-Development mode = best dev experience (*hot reload, redux devtools extension...*).
-
 *General case:*
 ```bash
 npm run start
@@ -52,7 +53,6 @@ npm run start
 ```bash
 npm run start-win
 ```
-> Then go to localhost:3000
 
 ### bundle production mode
 
@@ -64,27 +64,3 @@ npm run prod
 ```bash
 npm run prod-win
 ```
-
-### run production
-
-In `Development` ReactJS is `not optimized at all` (*you may even find the application to be slow*).
-
-*ReactJS shows its real power and is `amazing fast` when bundled in `production`.*
-
-*General case:*
-```bash
-npm run prod-server
-```
-> Then go to localhost:8081
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2017 Erwan DATIN
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

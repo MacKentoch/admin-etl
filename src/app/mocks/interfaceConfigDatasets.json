@@ -1,0 +1,593 @@
+[
+ {
+   "id": "116",
+   "interfaceId": "1",
+   "tableName": "RAW_OUT_ELIG_ESI_HEADER",
+   "tablePrescedence": "1",
+   "nbCols": 14
+ },
+ {
+   "id": "115",
+   "interfaceId": "1",
+   "tableName": "RAW_OUT_ELIG_ESI_BODY",
+   "tablePrescedence": "2",
+   "nbCols": 43
+ },
+ {
+   "id": "118",
+   "interfaceId": "1",
+   "tableName": "RAW_OUT_ELIG_ESI_FOOTER",
+   "tablePrescedence": "3",
+   "nbCols": 4
+ },
+ {
+   "id": "119",
+   "interfaceId": "3",
+   "tableName": "[dbo].[RAW_IN_CLM_ESI_BODY]",
+   "tablePrescedence": "1",
+   "nbCols": 79
+ },
+ {
+   "id": "167",
+   "interfaceId": "3",
+   "tableName": "[dbo].[RAW_IN_CLM_ESI_FOOTER]",
+   "tablePrescedence": "1",
+   "nbCols": 9
+ },
+ {
+   "id": "166",
+   "interfaceId": "3",
+   "tableName": "[dbo].[RAW_IN_CLM_ESI_HEADER]",
+   "tablePrescedence": "1",
+   "nbCols": 66
+ },
+ {
+   "id": "172",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_INSURED_HISTORY",
+   "tablePrescedence": "1",
+   "nbCols": 19
+ },
+ {
+   "id": "173",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_TARIFS",
+   "tablePrescedence": "1",
+   "nbCols": 30
+ },
+ {
+   "id": "174",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_SINISTRES_TER_LIGNES_NO_TE",
+   "tablePrescedence": "1",
+   "nbCols": 147
+ },
+ {
+   "id": "169",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_ENCAISSEMENTS",
+   "tablePrescedence": "1",
+   "nbCols": 76
+ },
+ {
+   "id": "170",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_SINISTRES_TERMINES_LIGNES",
+   "tablePrescedence": "1",
+   "nbCols": 150
+ },
+ {
+   "id": "165",
+   "interfaceId": "4",
+   "tableName": "[dbo].[RAW_OUT_CRM_PRIMES]",
+   "tablePrescedence": "1",
+   "nbCols": 37
+ },
+ {
+   "id": "120",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_ADHERENTS",
+   "tablePrescedence": "1",
+   "nbCols": 58
+ },
+ {
+   "id": "121",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_ASSURES",
+   "tablePrescedence": "1",
+   "nbCols": 31
+ },
+ {
+   "id": "122",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_BENEFICIAIRES_GAR_NEW",
+   "tablePrescedence": "1",
+   "nbCols": 22
+ },
+ {
+   "id": "123",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_BENEFICIAIRES_NEW",
+   "tablePrescedence": "1",
+   "nbCols": 115
+ },
+ {
+   "id": "124",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_CLIENTS",
+   "tablePrescedence": "1",
+   "nbCols": 42
+ },
+ {
+   "id": "126",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_CODES_ACTES",
+   "tablePrescedence": "1",
+   "nbCols": 21
+ },
+ {
+   "id": "127",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_COMPAGNIES",
+   "tablePrescedence": "1",
+   "nbCols": 5
+ },
+ {
+   "id": "128",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_ICD10",
+   "tablePrescedence": "1",
+   "nbCols": 7
+ },
+ {
+   "id": "129",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_POLICES",
+   "tablePrescedence": "1",
+   "nbCols": 79
+ },
+ {
+   "id": "130",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_PRESTATIONS",
+   "tablePrescedence": "1",
+   "nbCols": 8
+ },
+ {
+   "id": "131",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_PRESTATIONS_CR",
+   "tablePrescedence": "1",
+   "nbCols": 12
+ },
+ {
+   "id": "132",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_RIB",
+   "tablePrescedence": "1",
+   "nbCols": 21
+ },
+ {
+   "id": "133",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_SIN_TER_NO_TE",
+   "tablePrescedence": "1",
+   "nbCols": 115
+ },
+ {
+   "id": "134",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_SINISTRES_REGLEMENTS",
+   "tablePrescedence": "1",
+   "nbCols": 31
+ },
+ {
+   "id": "135",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_SINISTRES_TERMINES",
+   "tablePrescedence": "1",
+   "nbCols": 156
+ },
+ {
+   "id": "136",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_TIERS_PAYANTS",
+   "tablePrescedence": "1",
+   "nbCols": 70
+ },
+ {
+   "id": "137",
+   "interfaceId": "4",
+   "tableName": "RAW_OUT_CRM_UTILISATEURS",
+   "tablePrescedence": "1",
+   "nbCols": 7
+ },
+ {
+   "id": "138",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_ASSESSMENT",
+   "tablePrescedence": "1",
+   "nbCols": 5
+ },
+ {
+   "id": "139",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_BENEFICIARY",
+   "tablePrescedence": "1",
+   "nbCols": 0
+ },
+ {
+   "id": "141",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_INVOICES",
+   "tablePrescedence": "1",
+   "nbCols": 39
+ },
+ {
+   "id": "142",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_INVOICE_LINES",
+   "tablePrescedence": "1",
+   "nbCols": 38
+ },
+ {
+   "id": "143",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_PRIMARYSPECIALIST",
+   "tablePrescedence": "1",
+   "nbCols": 0
+ },
+ {
+   "id": "144",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_PROVIDERS",
+   "tablePrescedence": "1",
+   "nbCols": 6
+ },
+ {
+   "id": "145",
+   "interfaceId": "5",
+   "tableName": "RAW_IN_MIG_CLAIM_TREATMENT",
+   "tablePrescedence": "1",
+   "nbCols": 5
+ },
+ {
+   "id": "146",
+   "interfaceId": "7",
+   "tableName": "RAW_IN_CRM_SYNERGIE_UPDATE",
+   "tablePrescedence": "1",
+   "nbCols": 11
+ },
+ {
+   "id": "147",
+   "interfaceId": "9",
+   "tableName": "RAW_IN_MIG_ELIG_CORP_CLIENTS",
+   "tablePrescedence": "1",
+   "nbCols": 0
+ },
+ {
+   "id": "160",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_INVOICE_LINE",
+   "tablePrescedence": "1",
+   "nbCols": 0
+ },
+ {
+   "id": "159",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_PAYEE",
+   "tablePrescedence": "2",
+   "nbCols": 0
+ },
+ {
+   "id": "158",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_INVOICE",
+   "tablePrescedence": "3",
+   "nbCols": 0
+ },
+ {
+   "id": "157",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_PRIMARYSPECIALIST",
+   "tablePrescedence": "4",
+   "nbCols": 0
+ },
+ {
+   "id": "156",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_TREATMENT",
+   "tablePrescedence": "5",
+   "nbCols": 0
+ },
+ {
+   "id": "154",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_BENEFICIARY",
+   "tablePrescedence": "6",
+   "nbCols": 0
+ },
+ {
+   "id": "153",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_CLAIM",
+   "tablePrescedence": "7",
+   "nbCols": 0
+ },
+ {
+   "id": "152",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_VALIDATION_OVERRIDE",
+   "tablePrescedence": "8",
+   "nbCols": 0
+ },
+ {
+   "id": "151",
+   "interfaceId": "10",
+   "tableName": "AS_CLAIM_SOAP",
+   "tablePrescedence": "9",
+   "nbCols": 0
+ },
+ {
+   "id": "149",
+   "interfaceId": "13",
+   "tableName": "RAW_OUT_ELIG_UHCG_E3_HEADER",
+   "tablePrescedence": "1",
+   "nbCols": 3
+ },
+ {
+   "id": "150",
+   "interfaceId": "13",
+   "tableName": "RAW_OUT_ELIG_UHCG_E3_BODY",
+   "tablePrescedence": "2",
+   "nbCols": 155
+ },
+ {
+   "id": "163",
+   "interfaceId": "14",
+   "tableName": "[dbo].[RAW_OUT_ELIG_ADJUDICARE_ELIGIBILITY]",
+   "tablePrescedence": "1",
+   "nbCols": 0
+ },
+ {
+   "id": "162",
+   "interfaceId": "14",
+   "tableName": "[dbo].[RAW_OUT_ELIG_ADJUDICARE_STRUCTURE]",
+   "tablePrescedence": "2",
+   "nbCols": 0
+ },
+ {
+   "id": "164",
+   "interfaceId": "15",
+   "tableName": "[dbo].[RAW_IN_CLM_OPTUM_RX]",
+   "tablePrescedence": "1",
+   "nbCols": 48
+ },
+ {
+   "id": "175",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_ADH",
+   "tablePrescedence": "1",
+   "nbCols": 0
+ },
+ {
+   "id": "176",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_AYDR",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+ {
+   "id": "177",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_CLAIMSFORM",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "178",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_CLI",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "179",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_CONVENTION",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "180",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_COTISA",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "181",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_DEC",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "182",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_DECLI",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "183",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_EXP",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "184",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_EXPR",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "185",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_GAD",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "186",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_GADAYDR",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "187",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_LP",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "188",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_MONNAIES",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "189",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_NOMEN",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "190",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_NOMEN_FAMILLE",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "191",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_P_EXP_PUBLIC_COMM",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "192",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_PAIELIGNE",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "193",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_POL",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "194",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_PUC",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "195",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_REFERENTIELS",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "196",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_RESEAUX",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "197",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_SPE",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "198",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_TRADUCTION",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "199",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_TYP",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "200",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_USER",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+
+ {
+   "id": "201",
+   "interfaceId": "17",
+   "tableName": "IF_025_MSH_SERVICES_EXTRWEB_VR",
+   "tablePrescedence": "",
+   "nbCols": 0
+ },
+ {
+   "id": "204",
+   "interfaceId": "21",
+   "tableName": "[dbo].[RAW_IN_ELIG_MSH_GROUP_STANDARD_IMPORT]",
+   "tablePrescedence": "1",
+   "nbCols": 65
+ },
+ {
+   "id": "203",
+   "interfaceId": "23",
+   "tableName": "[dbo].[AS_MIDB_ENTITY_IDENTITY]",
+   "tablePrescedence": "1",
+   "nbCols": 11
+ }
+]

@@ -1,0 +1,173 @@
+@import "./app.var.style";
+
+body {
+  // internet explorer scrollbar custom:
+  // scrollbar-base-color: #C0C0C0;
+  // scrollbar-base-color: #C0C0C0;
+  // scrollbar-3dlight-color: #C0C0C0;
+  // scrollbar-highlight-color: #C0C0C0;
+  // scrollbar-track-color: #EBEBEB;
+  // scrollbar-arrow-color: black;
+  // scrollbar-shadow-color: #C0C0C0;
+  // scrollbar-dark-shadow-color: #C0C0C0;
+}
+.invisible {
+  opacity: 0;
+}
+
+.animatedViews {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.view-enter {
+   animation: smoothFadeInUp 0.3s both ease-in;
+   z-index: 1;
+ }
+
+@keyframes smoothFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 3%, 0);
+  }
+
+  90% {
+    opacity: 0.3;
+    transform: none;
+  }
+
+  95% {
+    opacity: 0.5;
+    transform: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.smoothFadeInUp {
+  animation-name: smoothFadeInUp;
+}
+
+// fix form inline
+.form-inline > * {
+   margin:5px 3px;
+}
+// fix
+.panel-heading {
+  z-index: 1 !important;
+}
+// fix
+.btn {
+  margin: {
+    left: 2px;
+    right: 2px;
+  }
+}
+// fix
+.well {
+    padding: 7px;
+}
+// fix
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 2px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+    margin-top: 2px;
+    // line-height: normal;
+}
+
+
+// spacer
+.spacer_20 {
+  display: block;
+  height: 20px;
+}
+.spacer_40 {
+  display: block;
+  height: 20px;
+}
+
+// overrides navpill stacked
+//
+.nav.nav-pills.nav-stacked > li.active > a, .nav.nav-pills.nav-stacked > li.active > a:hover {
+  background-color: #f6f6f6;
+  border-left-color: #E67E22 !important;
+  color: #444;
+}
+.nav.nav-pills.nav-stacked > li > a:hover {
+    background-color: #f6f6f6;
+    border-left-color: #E67E22 !important;
+}
+li.active > a:hover {
+    background-color: #f6f6f6;
+    border-top-color: #E67E22 !important;
+    color: #444;
+}
+
+// print media
+@media print {
+  // no-print class will prevent content to be printed when window.print()
+  .no-print {
+    display: none;
+  }
+}
+
+// orange Button
+.orange_button {
+  margin: {
+    left: 0px;
+  }
+  color: #FFFFFF !important;
+  background: {
+    color: #E67E22 !important;
+  }
+  &:hover {
+    color: #FFFFFF;
+    background: {
+      color: #F9690E !important;
+    }
+  }
+}
+
+// overrides dropdowns a hover color
+.dropdown-menu > li > a:hover {
+    background-color: #E67E22;
+    color: #f9f9f9;
+}
+
+// overrides nav pills
+.nav.nav-pills > li.active > a, .nav.nav-pills > li.active > a:hover {
+    background-color: #E67E22;
+    border-top-color: #F1F1F1 !important;
+    color: #F1F1F1;
+    border: 1px solid #F1F1F1;
+}
+.nav.nav-pills > li > a {
+    border: 1px solid #F1F1F1;
+    border-radius: 0;
+    color: #444;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+// react Collaspe margin fix
+.remove-margin-bottom {
+  margin-bottom: 0px !important;
+}
+
+.label-interface {
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.warning-icon--red {
+  color: rgb(239, 72, 54);
+}
+
+// fix react-modal on IE11
+.ReactModal__Overlay--after-open {
+  z-index: 1000000000000;
+}

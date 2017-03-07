@@ -1,20 +1,29 @@
-import { routerReducer } from 'react-router-redux';
-import { combineReducers } from 'redux';
-import earningGraph from './earningGraph';
-import sideMenu from './sideMenu';
-import userInfos from './userInfos';
-import teamMates from './teamMates';
+import { combineReducers }      from 'redux-immutable';
+import routerReducer from './immutableRoute';
+import { reducer as form }      from 'redux-form/immutable';
+
 import views from './views';
+import user from './user';
+import notification from './notification';
+import sidemenu from './sidemenu';
+import interfaces from './interfaces';
+import editInterface from './editInterface';
+import addNewInterfaceDataset from './addNewInterfaceDataset';
+import confirmDeleteModal from './confirmDeleteModal';
 
 export const reducers = {
-  earningGraph,
-  sideMenu,
-  userInfos,
-  teamMates,
-  views
+  views,
+  user,
+  notification,
+  sidemenu,
+  interfaces,
+  editInterface,
+  addNewInterfaceDataset,
+  confirmDeleteModal
 };
 
 export default combineReducers({
   ...reducers,
+  form,
   routing: routerReducer
 });

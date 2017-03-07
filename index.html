@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>React Director Admin Template</title>
+    <title>actAdmin</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="ReactJS Director free admin template">
-		<meta name="author" content="Erwan DATIN (MacKentoch)">
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<meta name="description" content="actAdmin">
+		<meta name="author" content="Erwan DATIN">
     <style>
-      .loading-message {
-        position: relative;
-        margin: 100px auto;
-        text-align: center;
-        color: #425164;
-      }
-
-      .spinner {
-        margin: 10px auto;
+      .sk-folding-cube {
+        margin: 20px auto;
         width: 40px;
         height: 40px;
         position: relative;
-        text-align: center;
-
-        -webkit-animation: sk-rotate 2.0s infinite linear;
-        animation: sk-rotate 2.0s infinite linear;
+        -webkit-transform: rotateZ(45deg);
+                transform: rotateZ(45deg);
       }
 
-      .dot1, .dot2 {
-        width: 60%;
-        height: 60%;
-        display: inline-block;
+      .sk-folding-cube .sk-cube {
+        float: left;
+        width: 50%;
+        height: 50%;
+        position: relative;
+        -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+                transform: scale(1.1);
+      }
+      .sk-folding-cube .sk-cube:before {
+        content: '';
         position: absolute;
         top: 0;
-        background-color: #425164;
-        border-radius: 100%;
-
-        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-        animation: sk-bounce 2.0s infinite ease-in-out;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #F9690E;
+        -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+                animation: sk-foldCubeAngle 2.4s infinite linear both;
+        -webkit-transform-origin: 100% 100%;
+            -ms-transform-origin: 100% 100%;
+                transform-origin: 100% 100%;
       }
-
-      .dot2 {
-        top: auto;
-        bottom: 0;
-        -webkit-animation-delay: -1.0s;
-        animation-delay: -1.0s;
+      .sk-folding-cube .sk-cube2 {
+        -webkit-transform: scale(1.1) rotateZ(90deg);
+                transform: scale(1.1) rotateZ(90deg);
       }
-
-      @-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
-      @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
-
-      @-webkit-keyframes sk-bounce {
-        0%, 100% { -webkit-transform: scale(0.0) }
-        50% { -webkit-transform: scale(1.0) }
+      .sk-folding-cube .sk-cube3 {
+        -webkit-transform: scale(1.1) rotateZ(180deg);
+                transform: scale(1.1) rotateZ(180deg);
       }
-
-      @keyframes sk-bounce {
-        0%, 100% {
-          transform: scale(0.0);
-          -webkit-transform: scale(0.0);
-        } 50% {
-          transform: scale(1.0);
-          -webkit-transform: scale(1.0);
+      .sk-folding-cube .sk-cube4 {
+        -webkit-transform: scale(1.1) rotateZ(270deg);
+                transform: scale(1.1) rotateZ(270deg);
+      }
+      .sk-folding-cube .sk-cube2:before {
+        -webkit-animation-delay: 0.3s;
+                animation-delay: 0.3s;
+      }
+      .sk-folding-cube .sk-cube3:before {
+        -webkit-animation-delay: 0.6s;
+                animation-delay: 0.6s;
+      }
+      .sk-folding-cube .sk-cube4:before {
+        -webkit-animation-delay: 0.9s;
+                animation-delay: 0.9s;
+      }
+      @-webkit-keyframes sk-foldCubeAngle {
+        0%, 10% {
+          -webkit-transform: perspective(140px) rotateX(-180deg);
+                  transform: perspective(140px) rotateX(-180deg);
+          opacity: 0;
+        } 25%, 75% {
+          -webkit-transform: perspective(140px) rotateX(0deg);
+                  transform: perspective(140px) rotateX(0deg);
+          opacity: 1;
+        } 90%, 100% {
+          -webkit-transform: perspective(140px) rotateY(180deg);
+                  transform: perspective(140px) rotateY(180deg);
+          opacity: 0;
         }
       }
-    </style>
-  </head>
-  <body class="skin-black">
 
+      @keyframes sk-foldCubeAngle {
+        0%, 10% {
+          -webkit-transform: perspective(140px) rotateX(-180deg);
+                  transform: perspective(140px) rotateX(-180deg);
+          opacity: 0;
+        } 25%, 75% {
+          -webkit-transform: perspective(140px) rotateX(0deg);
+                  transform: perspective(140px) rotateX(0deg);
+          opacity: 1;
+        } 90%, 100% {
+          -webkit-transform: perspective(140px) rotateY(180deg);
+                  transform: perspective(140px) rotateY(180deg);
+          opacity: 0;
+        }
+      }
+      .loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -100px;
+      }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  </head>
+  <body class="skin-black" style="background-color:#f1f2f7">
     <div class="loader">
-      <p class="loading-message">
+      <p>
         <i>
-          Loading...
+          loading...
         </i>
       </p>
-      <div class="spinner">
-        <div class="dot1"></div>
-        <div class="dot2"></div>
+      <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
       </div>
     </div>
-
     <section id="root"></section>
     <script type="text/javascript" src="./public/assets/bundle.js"></script>
     <script type="text/javascript">
@@ -91,6 +130,7 @@
         });
         function fadeOut(el){
           el.style.opacity = 1;
+
           (function fade() {
             if ((el.style.opacity -= .1) < 0.15) {
               el.style.display = "none";

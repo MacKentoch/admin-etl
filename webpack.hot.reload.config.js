@@ -1,16 +1,16 @@
-const webpack      = require('webpack');
 const path         = require('path');
+const webpack      = require('webpack');
 const autoprefixer = require('autoprefixer');
 const precss       = require('precss');
 
-const assetsDir   = path.resolve(__dirname, 'public/assets');
-const vendorsDir  = path.resolve(__dirname, 'src/app/vendors');
+const assetsDir = path.resolve(__dirname, 'public/assets');
+const vendorsDir  = path.join(__dirname, 'src/app/vendors');
 
 const config = {
-  devtool: 'eval',
+  devtool: 'cheap-module-source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     path.resolve(__dirname, 'src/app/index.js')
   ],
   output: {
@@ -20,16 +20,18 @@ const config = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.NoErrorsPlugin(),
     getImplicitGlobals(),
     setNodeEnv()
   ],
-  postcss() {
-    return [precss, autoprefixer];
+  postcss: function () {
+    return [precss, autoprefixer({ browsers: ['last 2 versions'] })];
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['react-hot', 'babel'],
+      loaders: ['babel'],
       exclude: [vendorsDir],
       include: path.join(__dirname, 'src/app')
     },  {

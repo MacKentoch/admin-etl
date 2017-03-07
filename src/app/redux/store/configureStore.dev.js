@@ -1,3 +1,5 @@
+'use strict';
+
 import {
   createStore,
   compose,
@@ -6,12 +8,13 @@ import {
 import createLogger             from 'redux-logger';
 import thunkMiddleware          from 'redux-thunk';
 import reducer                  from '../modules/reducers';
-import { localStorageManager }  from '../middleware';
-
+import notificationMidleware    from '../middleware/notification';
+import fetchMiddleware          from '../middleware/fetchMiddleware';
 
 const loggerMiddleware = createLogger({
-  level     : 'info',
-  collapsed : true
+  level:            'info',
+  collapsed:        true,
+  stateTransformer: state => state.toJS() // add support for immutable
 });
 
 // createStore : enhancer
@@ -24,15 +27,24 @@ const composeEnhancers =  typeof window === 'object' &&  // for universal ("isom
                           })
                           : compose;
 
-// createStore : enhancer
 const enhancer = composeEnhancers(
-  applyMiddleware(localStorageManager, thunkMiddleware, loggerMiddleware)
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware,
+    notificationMidleware,
+    fetchMiddleware
+  )
 );
 
 export default function configureStore(initialState) {
-  const store = createStore(reducer, initialState, enhancer);
-  module.hot.accept('../modules/reducers', () =>
-    store.replaceReducer(require('../modules/reducers').default)
-  );
+  const store = createStore(
+    reducer, initialState, enhancer);
+
+  if (module.hot) {
+    module.hot.accept('../modules/reducers', () => {
+      const hotReloadedReducer = require('../modules/reducers').default;
+      store.replaceReducer(hotReloadedReducer);
+    });
+  }
   return store;
 }

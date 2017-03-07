@@ -4,12 +4,12 @@ import {
   spring
 }                           from 'react-motion';
 
-const MenuHeader = ({title, backColor, isCollapsed, onClick}) => {
+const MenuHeader = ({title, isCollapsed, onClick}) => {
   return (
     <ul
       className="list-inline sidebar-menu__group-container"
       onClick={onClick}>
-      <li style={{width: '100%', backgroundColor: backColor}}>
+      <li style={{width: '100%', backgroundColor: '#4A4A4A'}}>
         <a
           className="btn"
           style={{width: '100%', paddinLeft: '0px !important'}}>
@@ -42,7 +42,6 @@ const MenuHeader = ({title, backColor, isCollapsed, onClick}) => {
 };
 
 MenuHeader.propTypes = {
-  backColor: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   isCollapsed: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired

@@ -4,24 +4,24 @@ import React, {
 import moment     from 'moment';
 
 const CENTIEME_SEC = 1000;
-const DATE_FORMAT  = 'MM/DD/YYYY';
+const DATE_FORMAT  = 'DD/MM/YYYY';
 const TIME_FORMAT  = 'HH:mm:ss';
 
 class Horloge extends PureComponent {
   state = {
     date: moment().format('DD/MM/YYYY'),
     time: moment().format('HH:MM:SS')
-  };
+  }
 
   componentDidMount() {
-    this.horloge = setInterval(
+    this.horloge = window.setInterval(
       () => this.ticTac(),
       CENTIEME_SEC
     );
   }
 
   componentWillUnmount() {
-    clearInterval(this.horloge);
+    window.clearInterval(this.horloge);
     this.horloge = null;
   }
 
@@ -32,9 +32,7 @@ class Horloge extends PureComponent {
         className="row horlogeContainer dateAndTimeContainer text-center"
         style={{marginLeft: 0, marginRight: 0}}>
         <div className="col-xs-12 dateAndTimeContainer">
-          <h2
-            className="text-center"
-            style={{marginTop: '5px'}}>
+          <h2 className="text-center">
             <span className="horlogeTime">
               {time}
             </span>

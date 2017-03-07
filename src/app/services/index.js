@@ -1,37 +1,56 @@
-// fetchTools:
+// utils:
 import {
   defaultOptions,
+  postMethod,
   checkStatus,
   parseJSON,
   getLocationOrigin,
   encodeBase64
-}                             from './fetchTools';
-// fetchMocks:
+}                     from './utils/fetchTools';
+// API
 import {
-  fetchMockEarningGraphData,
-  fetchMockUserInfosData,
-  fetchMockTeamMatesData
-}                             from './fetchMocks';
-// API:
+  getUserInfo
+}                     from './API';
+
+// date tools
 import {
-  getEarningGraphData,
-  getTeamMatesData,
-  getUserInfoData
-}                             from './API';
+  getLastThreeMonthNames,
+  isValidDateOrReturnDefault
+}                     from './utils/dateTools';
+// localStorage
+import {
+  getSideMenuState,
+  setSideMenuState
+}                     from './localStorage/ui/uiConfig';
+// asp.net date converted better formatted for JS
+import {
+  cleanAspDotNetStringDate
+}                     from './utils/aspNetDateCleaner';
+import {
+  limitStringToNChars
+}                     from './utils/stringManipulation';
 
 export {
-  // fetchTools:
+  // utils:
   defaultOptions,
+  postMethod,
   checkStatus,
   parseJSON,
   getLocationOrigin,
   encodeBase64,
-  // fetchMocks
-  fetchMockEarningGraphData,
-  fetchMockUserInfosData,
-  fetchMockTeamMatesData,
-  // API:
-  getEarningGraphData,
-  getTeamMatesData,
-  getUserInfoData
+  limitStringToNChars,
+
+  // API
+  getUserInfo,
+
+  // date tools
+  getLastThreeMonthNames,
+  isValidDateOrReturnDefault,
+
+  // asp.net date converted better formatted for JS
+  cleanAspDotNetStringDate,
+
+  // localStorage
+  getSideMenuState,
+  setSideMenuState
 };

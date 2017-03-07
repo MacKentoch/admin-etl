@@ -1,44 +1,24 @@
 import React, {
-  Component,
+  PureComponent,
   PropTypes
 }                     from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import Collapse       from 'react-collapse';
 import MenuHeader     from './menuHeader/MenuHeader';
 import MenuLinks      from './menuLinks/MenuLinks';
+import Immutable      from 'immutable';
 
-class Menu extends Component {
-  state = {
-    isCollapsed: true
-  };
-
-  componentDidMount() {
-    const { initialCollapseState } = this.props;
-    if (typeof initialCollapseState === 'boolean') {
-      this.setInitialCollapse(initialCollapseState);
-    }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
+class Menu extends PureComponent {
+  state = { isCollapsed: false }
 
   render() {
-    const {
-      headerTitle,
-      headerBackColor,
-      activeView,
-      views
-    } = this.props;
+    const { headerTitle, activeView, views  } = this.props;
     const { isCollapsed } = this.state;
-
     return (
       <div>
         <MenuHeader
           title={headerTitle}
           isCollapsed={!isCollapsed}
           onClick={this.handlesCollapseClick}
-          backColor={headerBackColor}
         />
         <Collapse
           isOpened={!isCollapsed}
@@ -52,10 +32,6 @@ class Menu extends Component {
     );
   }
 
-  setInitialCollapse = (value) => {
-    this.setState({ isCollapsed: value });
-  }
-
   handlesCollapseClick = (evt) => {
     evt.preventDefault();
     const { isCollapsed } = this.state;
@@ -65,21 +41,16 @@ class Menu extends Component {
 
 Menu.propTypes = {
   headerTitle: PropTypes.string.isRequired,
-  headerBackColor: PropTypes.string,
   activeView: PropTypes.string.isRequired,
-  views: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      linkTo: PropTypes.string.isRequired,
-      faIconName: PropTypes.string.isRequired,
-      itemCount: PropTypes.number
-    })
-  ).isRequired,
-  initialCollapseState: PropTypes.bool
-};
-
-Menu.defaultProps = {
-  headerBackColor: '#283744'
+  views: PropTypes.instanceOf(Immutable.Iterable).isRequired
+  // views: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     name: PropTypes.string.isRequired,
+  //     linkTo: PropTypes.string.isRequired,
+  //     faIconName: PropTypes.string.isRequired,
+  //     itemCount: PropTypes.number
+  //   })
+  // ).isRequired
 };
 
 export default Menu;

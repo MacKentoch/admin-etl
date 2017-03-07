@@ -1,0 +1,12 @@
+{
+  "types": [
+  "ELIGIBILITY",
+  "CLAIMS",
+  "CRM",
+  "MIG",
+  "TEMPLATE",
+  "WEB",
+  "CURRENCY",
+  "GENERIC"
+]
+}

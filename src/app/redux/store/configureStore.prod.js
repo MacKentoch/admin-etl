@@ -1,15 +1,21 @@
+'use strict';
+
 import {
   createStore,
   applyMiddleware,
   compose
-}                               from 'redux';
-import thunkMiddleware          from 'redux-thunk';
-import reducer                  from '../modules/reducers';
-import { localStorageManager }  from '../middleware';
+}                             from 'redux';
+import thunkMiddleware        from 'redux-thunk';
+import notificationMidleware  from '../middleware/notification';
+import fetchMiddleware        from '../middleware/fetchMiddleware';
+import reducer                from '../modules/reducers';
 
-// createStore : enhancer
 const enhancer = compose(
-  applyMiddleware(localStorageManager, thunkMiddleware)
+  applyMiddleware(
+    thunkMiddleware,
+    notificationMidleware,
+    fetchMiddleware
+  )
 );
 
 export default function configureStore(initialState) {

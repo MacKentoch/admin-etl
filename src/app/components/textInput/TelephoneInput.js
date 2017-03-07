@@ -1,22 +1,19 @@
 import React, {
-  Component,
+  PureComponent,
   PropTypes
 }                     from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import cx             from 'classnames';
 
 const telephoneRegex = /^(\+33|0033|0)([0-9])[0-9]{8}$/g;
 
 
-class TelephoneInput extends Component {
+class TelephoneInput extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       valid: true,
       stateValue: ''
     };
-    this.handlesOnChange = this.handlesOnChange.bind(this);
-
     this.timer = null;
   }
 
@@ -29,10 +26,6 @@ class TelephoneInput extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
-
   componentWillUnmount() {
     if (this.timer) {
       clearTimeout(this.timer);
@@ -41,7 +34,7 @@ class TelephoneInput extends Component {
   }
 
   render() {
-    const {label, id} = this.props;
+    const {label, id, value} = this.props;
     const {valid} = this.state;
     const { stateValue } = this.state;
 
@@ -65,28 +58,28 @@ class TelephoneInput extends Component {
             type="text"
             // value={value}
             defaultValue={stateValue}
-            // onChange={this.handlesOnChange} // IE11 misses some keys entered... yes I know what you think...
             onInput={this.handlesOnChange}
+            // onChange={this.handlesOnChange} // react 15.x IE11 bug
           />
         </div>
       </div>
     );
   }
 
-  checkIsValidTelephone(value) {
+  checkIsValidTelephone = (value) => {
     // test telephone pattern:
     const isValid = telephoneRegex.test(value);
     this.setState({ valid: isValid });
   }
 
-  handlesOnChange(event) {
+  handlesOnChange = (event) => {
     event.preventDefault();
     this.setState({stateValue: event.target.value});
     this.checkIsValidTelephone(event.target.value);
     this.setTimerBeforeCallback(event.target.value);
   }
-  // hack to prevent bad user xp when huge forms and callback each onChange to parent or store like redux:
-  setTimerBeforeCallback(value) {
+
+  setTimerBeforeCallback = (value) => {
     const { onChange, delay } = this.props;
 
     if (this.timer) {

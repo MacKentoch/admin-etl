@@ -1,34 +1,39 @@
+'use strict';
+
 import React, {
   Component,
   PropTypes
-}                     from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
+}               from 'react';
 
 class SearchForm extends Component {
+  constructor(props, context) {
+    super(props, context);
+  }
 
   componentDidMount() {
     this.searchinput.focus();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
-
   render() {
+    const props = this.props;
     return (
       <form
         className="sidebar-form"
-        onKeyPress={this.handlesFormKeyPress}>
+        onKeyPress={(e) =>this.handlesFormKeyPress(e) }>
         <div className="input-group">
           <input
-            ref={this.getRef}
+            ref={
+              (ref) => {
+                this.searchinput = ref;
+              }
+            }
             type="text"
             name="searchinput"
             className="form-control"
-            placeholder="Search..."/>
+            placeholder="rechercher..."/>
           <span className="input-group-btn">
             <button
-              onClick={this.handlesFormKeyPress}
+              onClick={(e) => props.onSearchSubmit(e)}
               name="search"
               id="search-btn"
               className="btn btn-flat">
@@ -40,21 +45,15 @@ class SearchForm extends Component {
     );
   }
 
-  getRef = (ref) => {
-    this.searchinput = ref;
-  }
-
-  handlesButtonPress = (event) => {
+  handlesButtonPress(event) {
     event.preventDefault();
-    const { onSearchSubmit } = this.props;
-    onSearchSubmit(this.searchinput.value.trim());
+    this.props.onSearchSubmit(this.searchinput.value.trim());
   }
 
-  handlesFormKeyPress = (event) => {
+  handlesFormKeyPress(event) {
     if (event.charCode === 13) {
       event.preventDefault();
-      const { onSearchSubmit } = this.props;
-      onSearchSubmit(this.searchinput.value.trim());
+      this.props.onSearchSubmit(this.searchinput.value.trim());
     }
   }
 }

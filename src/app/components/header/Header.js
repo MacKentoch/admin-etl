@@ -1,51 +1,72 @@
-import React, { PropTypes } from 'react';
-import UserMenu from './userMenu/UserMenu';
-import TaskMenu from './taskMenu/TaskMenu';
-import MessageMenu from './messageMenu/MessageMenu';
-import Button from './button/Button';
+import React, { PureComponent, PropTypes } from 'react';
+import UserMenu             from './userMenu/UserMenu';
+import SearchButton         from './searchButton/SearchButton';
+import { Link }             from 'react-router';
+import SuperAdminMenu       from './superAdminMenu/SuperAdminMenu';
+import cx                   from 'classnames';
 
-const Header = (props) => {
-  const {
-    userLogin,
-    userFirstname,
-    userLastname,
-    userPicture,
-    showPicture,
-
-    appName,
-    toggleSideMenu
-  } = props;
-
-  return (
-    <header
-      className="header fixed--header">
-      <a href="#"
-        className="logo">
-        { appName }
-      </a>
-      <nav
-        className="navbar navbar-static-top"
-        role="navigation">
-        <Button
-          toggleSideMenu={toggleSideMenu}
-        />
-        <div className="navbar-right">
-          <ul className="nav navbar-nav">
-            <MessageMenu />
-            <TaskMenu />
-            <UserMenu
-              login={userLogin}
-              firstname={userFirstname}
-              lastname={userLastname}
-              picture={userPicture}
-              showUserPicture={showPicture}
-            />
-          </ul>
-        </div>
-      </nav>
-    </header>
-  );
-};
+class Header extends PureComponent {
+  render() {
+    const {
+      appName,
+      toggleSideMenu
+      // userLogin,
+      // userFirstname,
+      // userLastname,
+      // userPicture,
+      // showPicture,
+      // onSearchClick
+    } = this.props;
+    return (
+      <header
+        className={
+          cx({
+            header: true,
+            'shadow--2dp': true,
+            'fixed--header': true,
+            'no-print': true
+          })
+        }>
+        <a href="#"
+          className="logo">
+          { appName }
+        </a>
+        <nav
+          className="navbar navbar-static-top"
+          role="navigation">
+          <Link
+            to="/"
+            onClick={toggleSideMenu}
+            className="navbar-btn sidebar-toggle"
+            data-toggle="offcanvas"
+            role="button">
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </Link>
+          <div className="navbar-right">
+            <ul className="nav navbar-nav">
+              {/* <SearchButton
+                onClick={onSearchClick}
+              /> */}
+              {/* <SuperAdminMenu
+                title={'Menu Super Administrateur'}
+              /> */}
+              {/* <UserMenu
+                login={userLogin}
+                firstname={userFirstname}
+                lastname={userLastname}
+                picture={userPicture}
+                showUserPicture={showPicture}
+              /> */}
+            </ul>
+          </div>
+        </nav>
+      </header>
+    );
+  }
+}
 
 Header.propTypes = {
   appName: PropTypes.string,
@@ -57,7 +78,9 @@ Header.propTypes = {
   showPicture: PropTypes.bool,
 
   currentView: PropTypes.string,
-  toggleSideMenu: PropTypes.func
+  toggleSideMenu: PropTypes.func,
+
+  onSearchClick: PropTypes.func
 };
 
 Header.defaultProps = {
